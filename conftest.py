@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from pages.page_factory import PageFactory
 
 
 def pytest_addoption(parser):
@@ -20,3 +21,8 @@ def driver(request):
         raise ValueError(f"{browser} not supported. Use chrome or firefox.")
     yield driver
     driver.quit()
+
+
+@pytest.fixture
+def pages(driver):
+    return PageFactory(driver)
