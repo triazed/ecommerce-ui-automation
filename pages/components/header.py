@@ -3,8 +3,6 @@ from pages.base_page import BasePage
 
 
 class Header(BasePage):
-    def __init__(self, driver):
-        super().__init__(driver)
 
     def click_register_button(self):
         self.click_element(HeaderLocators.REGISTER_BUTTON)

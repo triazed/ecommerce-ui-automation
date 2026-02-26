@@ -6,7 +6,7 @@ from pages.page_factory import PageFactory
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def driver(request):
     browser = request.config.getoption("--browser").lower()
     if browser == "chrome":
@@ -23,6 +23,6 @@ def driver(request):
     driver.quit()
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def pages(driver):
     return PageFactory(driver)

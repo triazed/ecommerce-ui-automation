@@ -3,8 +3,6 @@ from locators.register_page_locators import RegisterPageLocators
 
 
 class RegisterPage(BasePage):
-    def __init__(self, driver):
-        super().__init__(driver)
 
     # Registration form
     def set_first_name(self, first_name):
