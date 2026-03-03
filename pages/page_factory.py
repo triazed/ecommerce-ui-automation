@@ -5,6 +5,16 @@ from pages.register_page import RegisterPage
 
 class PageFactory:
     def __init__(self, driver):
-        self.base_page = BasePage(driver)
-        self.header = Header(driver)
-        self.register_page = RegisterPage(driver)
+        self.driver = driver
+
+    @property
+    def base_page(self):
+        return BasePage(self.driver)
+
+    @property
+    def header(self):
+        return Header(self.driver)
+
+    @property
+    def register_page(self):
+        return RegisterPage(self.driver)
