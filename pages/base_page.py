@@ -16,8 +16,10 @@ class BasePage:
 
     def set_text(self, locator, text):
         element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
-        element.clear()
         element.send_keys(text)
+
+    def get_text(self, locator):
+        return WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator)).text
 
     def is_element_visible(self, locator):
         try:

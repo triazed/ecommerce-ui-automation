@@ -1,0 +1,1 @@
+REGISTRATION_RESULT_SUCCESS_MESSAGE = 'Your registration completed'

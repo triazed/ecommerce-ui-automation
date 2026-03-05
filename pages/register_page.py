@@ -35,3 +35,6 @@ class RegisterPage(BasePage):
     def is_registration_completed(self):
         return self.is_element_visible(RegisterPageLocators.REGISTRATION_COMPLETED_MESSAGE)
 
+    def get_registration_result_message(self):
+        return self.get_text(RegisterPageLocators.REGISTRATION_COMPLETED_MESSAGE)
+
