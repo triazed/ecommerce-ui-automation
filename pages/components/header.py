@@ -10,6 +10,9 @@ class Header(BasePage):
     def click_login_button(self):
         self.click_element(HeaderLocators.LOGIN_BUTTON)
 
+    def click_logout_button(self):
+        self.click_element(HeaderLocators.LOGOUT_BUTTON)
+
     def is_logout_button_visible(self):
         return self.is_element_visible(HeaderLocators.LOGOUT_BUTTON)
 

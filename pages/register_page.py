@@ -1,8 +1,13 @@
+from config.urls import REGISTER_URL
 from pages.base_page import BasePage
 from locators.register_page_locators import RegisterPageLocators
 
 
 class RegisterPage(BasePage):
+    URL = REGISTER_URL
+
+    def open(self):
+        self.navigate_to(self.URL)
 
     # Registration form
     def set_first_name(self, first_name):
@@ -30,6 +35,10 @@ class RegisterPage(BasePage):
         self.set_password(password)
         self.set_confirm_password(password)
         self.click_register_button()
+
+    # Registration form validation errors
+    def get_validation_error_message(self):
+        return self.get_text(RegisterPageLocators.FORM_VALIDATION_ERROR_MESSAGE)
 
     # Registration result page
     def is_registration_completed(self):
