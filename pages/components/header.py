@@ -16,4 +16,3 @@ class Header(BasePage):
     def is_logout_button_visible(self):
         return self.is_element_visible(HeaderLocators.LOGOUT_BUTTON)
 
-

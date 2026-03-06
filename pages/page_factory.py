@@ -1,6 +1,7 @@
 from pages.base_page import BasePage
 from pages.components.header import Header
 from pages.register_page import RegisterPage
+from pages.login_page import LoginPage
 
 
 class PageFactory:
@@ -18,3 +19,7 @@ class PageFactory:
     @property
     def register_page(self):
         return RegisterPage(self.driver)
+
+    @property
+    def login_page(self):
+        return LoginPage(self.driver)
