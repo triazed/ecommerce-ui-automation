@@ -1,7 +1,9 @@
 from pages.base_page import BasePage
 from pages.components.header import Header
+from pages.product_card_page import ProductCardPage
 from pages.register_page import RegisterPage
 from pages.login_page import LoginPage
+from pages.search_results_page import SearchResultsPage
 
 
 class PageFactory:
@@ -23,3 +25,11 @@ class PageFactory:
     @property
     def login_page(self):
         return LoginPage(self.driver)
+
+    @property
+    def product_card_page(self):
+        return ProductCardPage(self.driver)
+
+    @property
+    def search_results_page(self):
+        return SearchResultsPage(self.driver)
