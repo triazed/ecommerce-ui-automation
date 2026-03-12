@@ -18,8 +18,20 @@ class BasePage:
         element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
         element.send_keys(text)
 
+    def clear_and_set_text(self, locator, text):
+        element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
+        element.clear()
+        element.send_keys(text)
+
     def get_text(self, locator):
         return WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator)).text
+
+    def get_texts(self, locator):
+        texts = []
+        elements = WebDriverWait(self.driver, self.timeout).until(lambda d: d.find_elements(*locator))
+        for element in elements:
+            texts.append(element.text)
+        return texts
 
     def is_element_visible(self, locator):
         try:
@@ -27,5 +39,8 @@ class BasePage:
             return True
         except TimeoutException:
             return False
+
+    def get_element_attribute(self, locator, attribute):
+        return WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator)).get_attribute(attribute)
 
 

@@ -9,3 +9,6 @@ class SearchResultsPage(BasePage):
 
     def get_no_result_message(self):
         return self.get_text(SearchResultsPageLocators.NO_RESULT_MESSAGE)
+
+    def click_searched_product_add_to_cart_button(self, product_name):
+        self.click_element(SearchResultsPageLocators.searched_product_add_to_cart_button(product_name))

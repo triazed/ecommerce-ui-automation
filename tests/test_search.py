@@ -6,16 +6,16 @@ class TestSearch:
 
     def test_search_product_by_name_via_dropdown(self, driver, pages):
         pages.base_page.navigate_to(urls.BASE_URL)
-        pages.header.set_searched_value(products.SEARCHED_PRODUCT_NAME)
-        pages.header.click_searched_product_in_search_dropdown(products.SEARCHED_PRODUCT_NAME)
-        assert pages.product_card_page.get_product_name() == products.SEARCHED_PRODUCT_NAME
+        pages.header.set_searched_value(products.SEARCHED_PRODUCT_NAME_QTY_1)
+        pages.header.click_searched_product_in_search_dropdown(products.SEARCHED_PRODUCT_NAME_QTY_1)
+        assert pages.product_card_page.get_product_name() == products.SEARCHED_PRODUCT_NAME_QTY_1
 
     def test_search_product_by_name_via_search_button(self, driver, pages):
         pages.base_page.navigate_to(urls.BASE_URL)
-        pages.header.set_searched_value(products.SEARCHED_PRODUCT_NAME)
+        pages.header.set_searched_value(products.SEARCHED_PRODUCT_NAME_QTY_1)
         pages.header.click_search_button()
-        pages.search_results_page.click_searched_product(products.SEARCHED_PRODUCT_NAME)
-        assert pages.product_card_page.get_product_name() == products.SEARCHED_PRODUCT_NAME
+        pages.search_results_page.click_searched_product(products.SEARCHED_PRODUCT_NAME_QTY_1)
+        assert pages.product_card_page.get_product_name() == products.SEARCHED_PRODUCT_NAME_QTY_1
 
     def test_search_product_by_nonexistent_name_via_dropdown(self, driver, pages):
         pages.base_page.navigate_to(urls.BASE_URL)

@@ -1,4 +1,4 @@
-from selenium.common import TimeoutException
+from selenium.common.exceptions import TimeoutException
 from locators.components.header_locators import HeaderLocators
 from pages.components.base_component import BaseComponent
 
@@ -13,6 +13,12 @@ class Header(BaseComponent):
 
     def click_logout_button(self):
         self.click_element(HeaderLocators.LOGOUT_BUTTON)
+
+    def click_cart_button(self):
+        self.click_element(HeaderLocators.CART_BUTTON)
+
+    def click_close_notification_button(self):
+        self.click_element(HeaderLocators.NOTIFICATION_CLOSE_BUTTON)
 
     def is_logout_button_visible(self):
         return self.is_element_visible(HeaderLocators.LOGOUT_BUTTON)

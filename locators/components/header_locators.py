@@ -4,10 +4,11 @@ class HeaderLocators:
     REGISTER_BUTTON = (By.CSS_SELECTOR, ".header-links a.ico-register")
     LOGIN_BUTTON = (By.CSS_SELECTOR, ".header-links a.ico-login")
     LOGOUT_BUTTON = (By.CSS_SELECTOR, ".header-links a.ico-logout")
+    CART_BUTTON = (By.CSS_SELECTOR, ".header-links a.ico-cart")
     SEARCH_INPUT = (By.CSS_SELECTOR, ".header-lower input.search-box-text")
     SEARCH_BUTTON = (By.CSS_SELECTOR, ".header-lower button.search-box-button")
     SEARCH_DROPDOWN_PRODUCT_NAMES = (By.CSS_SELECTOR, ".search-box a.ui-menu-item-wrapper>span")
-    SEARCH_DROPDOWN_LIST = (By.CSS_SELECTOR, ".search-box li")
+    NOTIFICATION_CLOSE_BUTTON = (By.CSS_SELECTOR, ".bar-notification .close")
 
     @staticmethod
     def searched_product(product_name):
