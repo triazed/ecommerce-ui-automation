@@ -1,4 +1,5 @@
 from pages.base_page import BasePage
+from pages.checkout_page import CheckoutPage
 from pages.shopping_cart_page import ShoppingCartPage
 from pages.components.header import Header
 from pages.product_card_page import ProductCardPage
@@ -38,3 +39,7 @@ class PageFactory:
     @property
     def shopping_cart_page(self):
         return ShoppingCartPage(self.driver)
+
+    @property
+    def checkout_page(self):
+        return CheckoutPage(self.driver)

@@ -15,4 +15,7 @@ class ShoppingCartPageLocators:
         return locator
 
     EMPTY_CART_MESSAGE = (By.CSS_SELECTOR, ".order-summary-content div.no-data")
+    TERMS_CHECKBOX = (By.CSS_SELECTOR, ".terms-of-service #termsofservice")
+    CHECKOUT_BUTTON = (By.CSS_SELECTOR, ".checkout-buttons button.checkout-button")
+
 

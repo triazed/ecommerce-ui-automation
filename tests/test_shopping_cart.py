@@ -28,14 +28,9 @@ class TestCart:
         assert product in pages.shopping_cart_page.get_product_names_in_cart()
         assert pages.shopping_cart_page.get_product_qty_in_cart(product) == "1"
 
-    def test_remove_product_from_cart(self, driver, pages):
-        pages.base_page.navigate_to(urls.BASE_URL)
-        product = products.SEARCHED_PRODUCT_NAME_QTY_1
-        pages.header.set_searched_value(product)
-        pages.header.click_search_button()
-        pages.search_results_page.click_searched_product_add_to_cart_button(product)
-        pages.header.click_close_notification_button()
+    def test_remove_product_from_cart(self, driver, pages, product_added_to_cart):
         pages.header.click_cart_button()
+        product = product_added_to_cart
         pages.shopping_cart_page.remove_product_from_cart(product)
         assert pages.shopping_cart_page.get_empty_cart_message() == expectations.EMPTY_CART_MESSAGE
 

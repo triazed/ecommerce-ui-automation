@@ -16,5 +16,13 @@ class ShoppingCartPage(BasePage):
     def get_empty_cart_message(self):
         return self.get_text(ShoppingCartPageLocators.EMPTY_CART_MESSAGE)
 
+    def click_terms_checkbox(self):
+        self.click_element(ShoppingCartPageLocators.TERMS_CHECKBOX)
+
+    def click_checkout_button(self):
+        self.click_element(ShoppingCartPageLocators.CHECKOUT_BUTTON)
+
+
+
 
 
