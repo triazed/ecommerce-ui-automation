@@ -37,5 +37,3 @@ Chrome is used as the default browser.
 pytest 
 
 pytest --browser=firefox
-
-

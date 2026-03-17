@@ -10,7 +10,6 @@ class LoginPage(BasePage):
         self.navigate_to(self.URL)
 
     # Login form
-
     def set_email(self, email):
         self.set_text(LoginPageLocators.EMAIL_INPUT, email)
 
@@ -26,6 +25,5 @@ class LoginPage(BasePage):
         self.click_login_button()
 
     # Login form validation errors
-
     def get_validation_error_message(self):
         return self.get_text(LoginPageLocators.LOGIN_ERROR_MESSAGE)

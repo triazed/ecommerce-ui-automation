@@ -1,5 +1,4 @@
 from config import urls
-from test_data import products
 from test_data import expectations
 from test_data import registration_data
 from test_data import checkout_data

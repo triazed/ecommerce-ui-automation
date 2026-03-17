@@ -19,5 +19,3 @@ class TestLogin:
         user = new_user()
         pages.login_page.login(user['email'], user['password'])
         assert pages.login_page.get_validation_error_message() == CUSTOMER_NOT_FOUND_ERROR_MESSAGE
-
-

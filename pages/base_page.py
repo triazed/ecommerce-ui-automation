@@ -42,5 +42,3 @@ class BasePage:
 
     def get_element_attribute(self, locator, attribute):
         return WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator)).get_attribute(attribute)
-
-

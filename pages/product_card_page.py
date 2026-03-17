@@ -24,7 +24,3 @@ class ProductCardPage(BasePage):
     def add_product_to_cart(self):
         self.set_add_to_cart_quantity()
         self.click_add_to_cart_button()
-
-
-
-

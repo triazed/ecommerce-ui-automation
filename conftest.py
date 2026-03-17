@@ -43,4 +43,3 @@ def product_added_to_cart(driver):
     WebDriverWait(driver, settings.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(SearchResultsPageLocators.searched_product_add_to_cart_button(product))).click()
     WebDriverWait(driver, settings.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(HeaderLocators.NOTIFICATION_CLOSE_BUTTON)).click()
     return product
-

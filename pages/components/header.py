@@ -37,5 +37,3 @@ class Header(BaseComponent):
 
     def click_searched_product_in_search_dropdown(self, product_name):
         self.click_element(HeaderLocators.searched_product(product_name))
-
-

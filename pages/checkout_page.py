@@ -7,12 +7,8 @@ class CheckoutPage(BasePage):
         return self.get_text(CheckoutPageLocators.CHECKOUT_PAGE_TITLE)
 
     # Checkout or register section
-    def get_checkout_as_guest_or_register_h2(self):
-        return self.get_text(CheckoutPageLocators.CHECKOUT_AS_GUEST_OR_REGISTER_H2)
-
     def click_checkout_as_guest_button(self):
         self.click_element(CheckoutPageLocators.CHECKOUT_AS_GUEST_BUTTON)
-
 
     # Billing address section
     def set_first_name(self, first_name):

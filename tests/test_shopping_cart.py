@@ -33,5 +33,3 @@ class TestCart:
         product = product_added_to_cart
         pages.shopping_cart_page.remove_product_from_cart(product)
         assert pages.shopping_cart_page.get_empty_cart_message() == expectations.EMPTY_CART_MESSAGE
-
-

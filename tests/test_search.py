@@ -27,5 +27,3 @@ class TestSearch:
         pages.header.set_searched_value(products.NONEXISTENT_PRODUCT_NAME)
         pages.header.click_search_button()
         assert pages.search_results_page.get_no_result_message() == expectations.NO_RESULT_MESSAGE
-
-

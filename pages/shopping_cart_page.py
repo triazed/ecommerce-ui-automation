@@ -21,8 +21,3 @@ class ShoppingCartPage(BasePage):
 
     def click_checkout_button(self):
         self.click_element(ShoppingCartPageLocators.CHECKOUT_BUTTON)
-
-
-
-
-

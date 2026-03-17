@@ -46,4 +46,3 @@ class RegisterPage(BasePage):
 
     def get_registration_result_message(self):
         return self.get_text(RegisterPageLocators.REGISTRATION_COMPLETED_MESSAGE)
-
