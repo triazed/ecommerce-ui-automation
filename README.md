@@ -8,6 +8,25 @@ The project demonstrates automated UI testing using Selenium, Pytest and Page Ob
 - Page Object Model
 - Docker (for local test environment)
 
+### Test coverage
+The project covers the following user flows:
+
+- User registration (positive and negative scenarios)
+- User login (positive and negative scenarios)
+- Product search (dropdown and search results)
+- Cart operations (add, remove, quantity validation)
+- Checkout flow (guest and authorized user)
+
+End-to-end flow:
+search → add to cart → cart → checkout → order
+
+### Project structure
+- pages/ – Page Object Model implementation
+- locators/ – UI locators
+- tests/ – test scenarios
+- test_data/ – test data and expectations
+- utils/ – data generators
+
 ### Prerequisites
 - Python 3.10+
 - Docker Desktop
