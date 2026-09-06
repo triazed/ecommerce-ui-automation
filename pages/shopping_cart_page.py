@@ -8,7 +8,7 @@ class ShoppingCartPage(BaseUI):
         return self.get_texts(ShoppingCartPageLocators.PRODUCT_NAMES)
 
     def get_product_qty_in_cart(self, product_name):
-        return self.get_element_attribute(ShoppingCartPageLocators.product_qty_in_cart(product_name), "value")
+        return int(self.get_element_attribute(ShoppingCartPageLocators.product_qty_in_cart(product_name), "value"))
 
     def remove_product_from_cart(self, product_name):
         self.click_element(ShoppingCartPageLocators.remove_product_button(product_name))
@@ -21,3 +21,7 @@ class ShoppingCartPage(BaseUI):
 
     def click_checkout_button(self):
         self.click_element(ShoppingCartPageLocators.CHECKOUT_BUTTON)
+
+    def proceed_to_checkout_from_cart(self):
+        self.click_terms_checkbox()
+        self.click_checkout_button()

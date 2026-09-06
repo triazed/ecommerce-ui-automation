@@ -1,6 +1,7 @@
 from locators.checkout_page_locators import CheckoutPageLocators
 from pages.base_ui import BaseUI
 
+
 class CheckoutPage(BaseUI):
 
     def get_checkout_page_title(self):
@@ -11,65 +12,59 @@ class CheckoutPage(BaseUI):
         self.click_element(CheckoutPageLocators.CHECKOUT_AS_GUEST_BUTTON)
 
     # Billing address section
-    def set_first_name(self, first_name):
-        self.set_text(CheckoutPageLocators.FIRST_NAME, first_name)
+    def set_first_name(self, checkout_data):
+        self.set_text(CheckoutPageLocators.FIRST_NAME, checkout_data["first_name"])
 
-    def set_last_name(self, last_name):
-        self.set_text(CheckoutPageLocators.LAST_NAME, last_name)
+    def set_last_name(self, checkout_data):
+        self.set_text(CheckoutPageLocators.LAST_NAME, checkout_data["last_name"])
 
-    def set_email(self, email):
-        self.set_text(CheckoutPageLocators.EMAIL, email)
+    def set_email(self, checkout_data):
+        self.set_text(CheckoutPageLocators.EMAIL, checkout_data["email"])
 
-    def click_countries_dropdown(self):
-        self.click_element(CheckoutPageLocators.COUNTRIES_DROPDOWN)
+    def choose_country(self, checkout_data):
+        country_name = checkout_data["country_name"]
+        self.select_from_dropdown_by_visible_text(CheckoutPageLocators.COUNTRIES_DROPDOWN, country_name)
 
-    def choose_country(self, country_name):
-        self.click_countries_dropdown()
-        self.click_element(CheckoutPageLocators.country_name(country_name))
+    def choose_state(self, checkout_data):
+        state_name = checkout_data["state_name"]
+        self.select_from_dropdown_by_visible_text(CheckoutPageLocators.STATES_DROPDOWN, state_name)
 
-    def click_states_dropdown(self):
-        self.click_element(CheckoutPageLocators.STATES_DROPDOWN)
+    def set_city(self, checkout_data):
+        self.set_text(CheckoutPageLocators.CITY, checkout_data["city_name"])
 
-    def choose_state(self, state_name):
-        self.click_states_dropdown()
-        self.click_element(CheckoutPageLocators.state_name(state_name))
+    def set_address_1(self, checkout_data):
+        self.set_text(CheckoutPageLocators.ADDRESS_1, checkout_data["address_1"])
 
-    def set_city(self, city_name):
-        self.set_text(CheckoutPageLocators.CITY, city_name)
+    def set_zip_code(self, checkout_data):
+        self.set_text(CheckoutPageLocators.ZIP_CODE, checkout_data["zip_code"])
 
-    def set_address_1(self, address_1):
-        self.set_text(CheckoutPageLocators.ADDRESS_1, address_1)
+    def set_phone_number(self, checkout_data):
+        self.set_text(CheckoutPageLocators.PHONE, checkout_data["phone_number"])
 
-    def set_zip_code(self, zip_code):
-        self.set_text(CheckoutPageLocators.ZIP_CODE, zip_code)
+    def set_billing_address_section(self, checkout_data):
+        self.set_first_name(checkout_data)
+        self.set_last_name(checkout_data)
+        self.set_email(checkout_data)
+        self.choose_country(checkout_data)
+        self.choose_state(checkout_data)
+        self.set_city(checkout_data)
+        self.set_address_1(checkout_data)
+        self.set_zip_code(checkout_data)
+        self.set_phone_number(checkout_data)
 
-    def set_phone_number(self, phone_number):
-        self.set_text(CheckoutPageLocators.PHONE, phone_number)
-
-    def set_billing_address_section(self, first_name, last_name, email, country_name, state_name, city_name, address_1, zip_code, phone_number):
-        self.set_first_name(first_name)
-        self.set_last_name(last_name)
-        self.set_email(email)
-        self.choose_country(country_name)
-        self.choose_state(state_name)
-        self.set_city(city_name)
-        self.set_address_1(address_1)
-        self.set_zip_code(zip_code)
-        self.set_phone_number(phone_number)
-
-    def click_address_continue_button(self):
+    def continue_from_billing_address_section(self):
         self.click_element(CheckoutPageLocators.ADDRESS_CONTINUE_BUTTON)
 
     # Shipping method section
-    def click_shipping_continue_button(self):
-        self.click_element(CheckoutPageLocators.SHIPPING_CONTINUE_BUTTON)
+    def continue_from_shipping_method_section(self):
+        self.click_element(CheckoutPageLocators.SHIPPING_METHOD_CONTINUE_BUTTON)
 
     # Payment method section
-    def click_payment_continue_button(self):
+    def continue_from_payment_method_section(self):
         self.click_element(CheckoutPageLocators.PAYMENT_METHOD_CONTINUE_BUTTON)
 
     # Payment information section
-    def click_payment_info_continue_button(self):
+    def continue_from_payment_info_section(self):
         self.click_element(CheckoutPageLocators.PAYMENT_INFO_CONTINUE_BUTTON)
 
     # Confirm order section

@@ -2,6 +2,7 @@ from locators.login_page_locators import LoginPageLocators
 from pages.base_ui import BaseUI
 from config.urls import LOGIN_URL
 
+
 class LoginPage(BaseUI):
 
     URL = LOGIN_URL

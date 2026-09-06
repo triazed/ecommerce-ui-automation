@@ -26,7 +26,7 @@ class TestCart:
         pages.header.click_close_notification_button()
         pages.header.click_cart_button()
         assert product in pages.shopping_cart_page.get_product_names_in_cart()
-        assert pages.shopping_cart_page.get_product_qty_in_cart(product) == "1"
+        assert pages.shopping_cart_page.get_product_qty_in_cart(product) == 1
 
     def test_remove_product_from_cart(self, driver, pages, product_added_to_cart):
         pages.header.click_cart_button()

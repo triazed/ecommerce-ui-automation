@@ -1,7 +1,10 @@
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from config import settings
+
+
 
 class BaseUI:
     def __init__(self, driver):
@@ -49,3 +52,7 @@ class BaseUI:
 
     def get_element_attribute(self, locator, attribute):
         return WebDriverWait(self.driver, self.timeout).until(EC.presence_of_element_located(locator)).get_attribute(attribute)
+
+    def select_from_dropdown_by_visible_text(self, locator, text):
+        dropdown = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
+        Select(dropdown).select_by_visible_text(text)

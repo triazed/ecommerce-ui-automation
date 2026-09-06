@@ -1,4 +1,3 @@
-from selenium.common.exceptions import TimeoutException
 from locators.components.header_locators import HeaderLocators
 from pages.base_ui import BaseUI
 

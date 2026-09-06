@@ -13,9 +13,9 @@ class ProductCardPage(BaseUI):
     def get_min_quantity(self):
         if self.is_element_visible(ProductCardPageLocators.MIN_QUANTITY_NOTIFICATION):
             min_quantity = self.get_text(ProductCardPageLocators.MIN_QUANTITY_NOTIFICATION).removeprefix("This product has a minimum quantity of ")
-            return min_quantity
+            return int(min_quantity)
         else:
-            return "1"
+            return 1
 
     def set_add_to_cart_quantity(self):
         min_quantity = self.get_min_quantity()

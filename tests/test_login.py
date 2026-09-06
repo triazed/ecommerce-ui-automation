@@ -4,14 +4,11 @@ from test_data.expectations import CUSTOMER_NOT_FOUND_ERROR_MESSAGE
 
 class TestLogin:
 
-    def test_successful_login(self, driver, pages):
+    def test_successful_login(self, driver, pages, registered_user):
         pages.base_page.navigate_to(BASE_URL)
-        pages.header.click_register_button()
-        user = new_user()
-        pages.register_page.register(user['first_name'], user['last_name'], user['email'], user['password'])
-        pages.header.click_logout_button()
         pages.header.click_login_button()
-        pages.login_page.login(user['email'], user['password'])
+        user_email, user_password = registered_user["email"], registered_user["password"]
+        pages.login_page.login(user_email, user_password)
         assert pages.header.is_logout_button_visible()
 
     def test_login_with_unregistered_email(self, driver, pages):
