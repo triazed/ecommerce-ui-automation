@@ -1,13 +1,9 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from config import settings
-from locators.components.header_locators import HeaderLocators
-from locators.search_results_page_locators import SearchResultsPageLocators
 from test_data import products
 from config import urls
 from pages.page_factory import PageFactory
+from test_data.registration_data import new_user
 
 
 def pytest_addoption(parser):
@@ -35,11 +31,31 @@ def pages(driver):
     return PageFactory(driver)
 
 @pytest.fixture(scope="function")
-def product_added_to_cart(driver):
-    driver.get(urls.BASE_URL)
+def product_added_to_cart(pages):
+    pages.base_page.navigate_to(urls.BASE_URL)
     product = products.SEARCHED_PRODUCT_NAME_QTY_1
-    WebDriverWait(driver, settings.DEFAULT_TIMEOUT).until(EC.visibility_of_element_located(HeaderLocators.SEARCH_INPUT)).send_keys(product)
-    WebDriverWait(driver, settings.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(HeaderLocators.SEARCH_BUTTON)).click()
-    WebDriverWait(driver, settings.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(SearchResultsPageLocators.searched_product_add_to_cart_button(product))).click()
-    WebDriverWait(driver, settings.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(HeaderLocators.NOTIFICATION_CLOSE_BUTTON)).click()
+    pages.header.set_searched_value(product)
+    pages.header.click_searched_product_in_search_dropdown(product)
+    pages.product_card_page.add_product_to_cart()
+    pages.header.click_close_notification_button()
     return product
+
+@pytest.fixture(scope="function")
+def registered_user(pages):
+    pages.base_page.navigate_to(urls.BASE_URL)
+    pages.header.click_register_button()
+    user = new_user()
+    pages.register_page.register(user['first_name'], user['last_name'], user['email'], user['password'])
+    pages.header.click_logout_button()
+    return {
+        "first_name": user['first_name'],
+        "last_name": user['last_name'],
+        "email": user['email'],
+        "password": user['password'],
+    }
+
+@pytest.fixture(scope="function")
+def authorized_user(pages, registered_user):
+    pages.login_page.open()
+    user_email, user_password = registered_user["email"], registered_user["password"]
+    pages.login_page.login(user_email, user_password)
