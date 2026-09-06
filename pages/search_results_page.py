@@ -1,8 +1,8 @@
 from locators.search_results_page_locators import SearchResultsPageLocators
-from pages.base_page import BasePage
+from pages.base_ui import BaseUI
 
 
-class SearchResultsPage(BasePage):
+class SearchResultsPage(BaseUI):
 
     def click_searched_product(self, product_name):
         self.click_element(SearchResultsPageLocators.searched_product_name(product_name))

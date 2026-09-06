@@ -1,9 +1,9 @@
 from config.urls import REGISTER_URL
-from pages.base_page import BasePage
+from pages.base_ui import BaseUI
 from locators.register_page_locators import RegisterPageLocators
 
 
-class RegisterPage(BasePage):
+class RegisterPage(BaseUI):
     URL = REGISTER_URL
 
     def open(self):

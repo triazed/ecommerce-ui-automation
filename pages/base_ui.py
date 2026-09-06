@@ -3,7 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from config import settings
 
-class BasePage:
+class BaseUI:
     def __init__(self, driver):
         self.driver = driver
         self.timeout = settings.DEFAULT_TIMEOUT
@@ -33,6 +33,13 @@ class BasePage:
             texts.append(element.text)
         return texts
 
+    def is_element_invisible(self, locator):
+        try:
+            WebDriverWait(self.driver, self.timeout).until(EC.invisibility_of_element_located(locator))
+            return True
+        except TimeoutException:
+            return False
+
     def is_element_visible(self, locator):
         try:
             WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
@@ -41,4 +48,4 @@ class BasePage:
             return False
 
     def get_element_attribute(self, locator, attribute):
-        return WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator)).get_attribute(attribute)
+        return WebDriverWait(self.driver, self.timeout).until(EC.presence_of_element_located(locator)).get_attribute(attribute)

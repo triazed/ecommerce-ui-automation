@@ -1,4 +1,4 @@
-from pages.base_page import BasePage
+from pages.base_ui import BaseUI
 from pages.checkout_page import CheckoutPage
 from pages.shopping_cart_page import ShoppingCartPage
 from pages.components.header import Header
@@ -14,7 +14,7 @@ class PageFactory:
 
     @property
     def base_page(self):
-        return BasePage(self.driver)
+        return BaseUI(self.driver)
 
     @property
     def header(self):

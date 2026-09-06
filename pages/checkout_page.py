@@ -1,7 +1,7 @@
 from locators.checkout_page_locators import CheckoutPageLocators
-from pages.base_page import BasePage
+from pages.base_ui import BaseUI
 
-class CheckoutPage(BasePage):
+class CheckoutPage(BaseUI):
 
     def get_checkout_page_title(self):
         return self.get_text(CheckoutPageLocators.CHECKOUT_PAGE_TITLE)

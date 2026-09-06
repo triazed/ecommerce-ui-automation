@@ -1,9 +1,9 @@
 from selenium.common.exceptions import TimeoutException
 from locators.components.header_locators import HeaderLocators
-from pages.components.base_component import BaseComponent
+from pages.base_ui import BaseUI
 
 
-class Header(BaseComponent):
+class Header(BaseUI):
 
     def click_register_button(self):
         self.click_element(HeaderLocators.REGISTER_BUTTON)
@@ -30,10 +30,10 @@ class Header(BaseComponent):
         self.click_element(HeaderLocators.SEARCH_BUTTON)
 
     def get_list_of_product_names_in_search_dropdown(self):
-        try:
-            return self.get_texts(HeaderLocators.SEARCH_DROPDOWN_PRODUCT_NAMES)
-        except TimeoutException:
-            return []
+        return self.get_texts(HeaderLocators.SEARCH_DROPDOWN_PRODUCT_NAMES)
+
+    def is_search_dropdown_empty(self):
+        return self.is_element_invisible(HeaderLocators.SEARCH_DROPDOWN_CONTENT)
 
     def click_searched_product_in_search_dropdown(self, product_name):
         self.click_element(HeaderLocators.searched_product(product_name))

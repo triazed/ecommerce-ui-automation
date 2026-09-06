@@ -1,8 +1,8 @@
 from locators.shopping_cart_page_locators import ShoppingCartPageLocators
-from pages.base_page import BasePage
+from pages.base_ui import BaseUI
 
 
-class ShoppingCartPage(BasePage):
+class ShoppingCartPage(BaseUI):
 
     def get_product_names_in_cart(self):
         return self.get_texts(ShoppingCartPageLocators.PRODUCT_NAMES)

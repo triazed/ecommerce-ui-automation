@@ -1,8 +1,8 @@
 from locators.product_card_page_locators import ProductCardPageLocators
-from pages.base_page import BasePage
+from pages.base_ui import BaseUI
 
 
-class ProductCardPage(BasePage):
+class ProductCardPage(BaseUI):
 
     def get_product_name(self):
         return self.get_text(ProductCardPageLocators.PRODUCT_NAME)
