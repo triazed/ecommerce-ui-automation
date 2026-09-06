@@ -5,7 +5,10 @@ REGISTRATION_RESULT_SUCCESS_MESSAGE = 'Your registration completed'
 EMAIL_EXISTS_ERROR_MESSAGE = 'The specified email already exists'
 
 # Login form
-CUSTOMER_NOT_FOUND_ERROR_MESSAGE = 'No customer account found'
+CUSTOMER_NOT_FOUND = 'No customer account found'
+EMPTY_EMAIL_FIELD = "Please enter your email"
+INVALID_EMAIL_ADDRESS = "Please enter a valid email address."
+INCORRECT_PASSWORD = "The credentials provided are incorrect"
 
 # Search results page
 NO_RESULT_MESSAGE = "No products were found that matched your criteria."

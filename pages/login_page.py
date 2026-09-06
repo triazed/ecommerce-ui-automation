@@ -28,3 +28,6 @@ class LoginPage(BaseUI):
     # Login form validation errors
     def get_validation_error_message(self):
         return self.get_text(LoginPageLocators.LOGIN_ERROR_MESSAGE)
+
+    def get_email_error_message(self):
+        return self.get_text(LoginPageLocators.EMAIL_ERROR_MESSAGE)
