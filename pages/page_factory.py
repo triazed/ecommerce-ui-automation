@@ -10,36 +10,11 @@ from pages.search_results_page import SearchResultsPage
 
 class PageFactory:
     def __init__(self, driver):
-        self.driver = driver
-
-    @property
-    def base_page(self):
-        return BaseUI(self.driver)
-
-    @property
-    def header(self):
-        return Header(self.driver)
-
-    @property
-    def register_page(self):
-        return RegisterPage(self.driver)
-
-    @property
-    def login_page(self):
-        return LoginPage(self.driver)
-
-    @property
-    def product_card_page(self):
-        return ProductCardPage(self.driver)
-
-    @property
-    def search_results_page(self):
-        return SearchResultsPage(self.driver)
-
-    @property
-    def shopping_cart_page(self):
-        return ShoppingCartPage(self.driver)
-
-    @property
-    def checkout_page(self):
-        return CheckoutPage(self.driver)
+        self.base_ui = BaseUI(driver)
+        self.header = Header(driver)
+        self.checkout_page = CheckoutPage(driver)
+        self.login_page = LoginPage(driver)
+        self.product_card_page = ProductCardPage(driver)
+        self.register_page = RegisterPage(driver)
+        self.search_results_page = SearchResultsPage(driver)
+        self.shopping_cart_page = ShoppingCartPage(driver)

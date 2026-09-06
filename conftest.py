@@ -32,7 +32,7 @@ def pages(driver):
 
 @pytest.fixture(scope="function")
 def product_added_to_cart(pages):
-    pages.base_page.navigate_to(urls.BASE_URL)
+    pages.base_ui.navigate_to(urls.BASE_URL)
     product = products.SEARCHED_PRODUCT_NAME_QTY_1
     pages.header.set_searched_value(product)
     pages.header.click_searched_product_in_search_dropdown(product)
@@ -42,7 +42,7 @@ def product_added_to_cart(pages):
 
 @pytest.fixture(scope="function")
 def registered_user(pages):
-    pages.base_page.navigate_to(urls.BASE_URL)
+    pages.base_ui.navigate_to(urls.BASE_URL)
     pages.header.click_register_button()
     user = new_user()
     pages.register_page.register(user['first_name'], user['last_name'], user['email'], user['password'])
