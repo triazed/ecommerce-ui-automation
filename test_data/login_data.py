@@ -5,12 +5,12 @@ from test_data import expectations
 invalid_email_data = [
     pytest.param(
         "",
-        expectations.EMPTY_EMAIL_FIELD,
+        expectations.EMPTY_LOGIN_EMAIL_FIELD,
         id="EMPTY_EMAIL_FIELD"
     ),
     pytest.param(
         "test",
-        expectations.INVALID_EMAIL_ADDRESS,
+        expectations.INVALID_LOGIN_EMAIL_ADDRESS,
         id="INVALID_EMAIL_ADDRESS"
     ),
 ]
@@ -23,12 +23,12 @@ non_existent_user_data = {
 invalid_password_data = [
     pytest.param(
         "123@456",
-        expectations.INCORRECT_PASSWORD,
+        expectations.INCORRECT_LOGIN_PASSWORD,
         id="PASSWORD_DOES_NOT_MATCH"
     ),
     pytest.param(
         "",
-        expectations.INCORRECT_PASSWORD,
+        expectations.INCORRECT_LOGIN_PASSWORD,
         id="EMPTY_PASSWORD"
     ),
 ]

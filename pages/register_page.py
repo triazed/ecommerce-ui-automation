@@ -10,39 +10,51 @@ class RegisterPage(BaseUI):
         self.navigate_to(self.URL)
 
     # Registration form
-    def set_first_name(self, first_name):
-        self.set_text(RegisterPageLocators.FIRST_NAME_INPUT, first_name)
+    def set_first_name(self, registration_data):
+        self.set_text(RegisterPageLocators.FIRST_NAME_INPUT, registration_data["first_name"])
 
-    def set_last_name(self, last_name):
-        self.set_text(RegisterPageLocators.LAST_NAME_INPUT, last_name)
+    def set_last_name(self, registration_data):
+        self.set_text(RegisterPageLocators.LAST_NAME_INPUT, registration_data["last_name"])
 
-    def set_email(self, email):
-        self.set_text(RegisterPageLocators.EMAIL_INPUT, email)
+    def set_email(self, registration_data):
+        self.set_text(RegisterPageLocators.EMAIL_INPUT, registration_data["email"])
 
-    def set_password(self, password):
-        self.set_text(RegisterPageLocators.PASSWORD_INPUT, password)
+    def set_password(self, registration_data):
+        self.set_text(RegisterPageLocators.PASSWORD_INPUT, registration_data["password"])
 
-    def set_confirm_password(self, password):
-        self.set_text(RegisterPageLocators.PASSWORD_CONFIRM_INPUT, password)
+    def set_confirm_password(self, registration_data):
+        self.set_text(RegisterPageLocators.PASSWORD_CONFIRM_INPUT, registration_data["confirm_password"])
 
     def click_register_button(self):
         self.click_element(RegisterPageLocators.REGISTER_BUTTON)
 
-    def register(self, first_name, last_name, email, password):
-        self.set_first_name(first_name)
-        self.set_last_name(last_name)
-        self.set_email(email)
-        self.set_password(password)
-        self.set_confirm_password(password)
+    def register(self, registration_data):
+        self.set_first_name(registration_data)
+        self.set_last_name(registration_data)
+        self.set_email(registration_data)
+        self.set_password(registration_data)
+        self.set_confirm_password(registration_data)
         self.click_register_button()
 
     # Registration form validation errors
     def get_validation_error_message(self):
         return self.get_text(RegisterPageLocators.FORM_VALIDATION_ERROR_MESSAGE)
 
-    # Registration result page
-    def is_registration_completed(self):
-        return self.is_element_visible(RegisterPageLocators.REGISTRATION_COMPLETED_MESSAGE)
+    def get_first_name_validation_error_message(self):
+        return self.get_text(RegisterPageLocators.FIRST_NAME_VALIDATION_ERROR_MESSAGE)
 
+    def get_last_name_validation_error_message(self):
+        return self.get_text(RegisterPageLocators.LAST_NAME_VALIDATION_ERROR_MESSAGE)
+
+    def get_email_validation_error_message(self):
+        return self.get_text(RegisterPageLocators.EMAIL_VALIDATION_ERROR_MESSAGE)
+
+    def get_password_validation_error_message(self):
+        return self.get_text(RegisterPageLocators.PASSWORD_VALIDATION_ERROR_MESSAGE)
+
+    def get_confirm_password_validation_error_message(self):
+        return self.get_text(RegisterPageLocators.CONFIRM_PASSWORD_VALIDATION_ERROR_MESSAGE)
+
+    # Registration result page
     def get_registration_result_message(self):
         return self.get_text(RegisterPageLocators.REGISTRATION_COMPLETED_MESSAGE)

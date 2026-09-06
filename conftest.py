@@ -42,16 +42,16 @@ def product_added_to_cart(pages):
 
 @pytest.fixture(scope="function")
 def registered_user(pages):
-    pages.base_ui.navigate_to(urls.BASE_URL)
-    pages.header.click_register_button()
+    pages.register_page.open()
     user = new_user()
-    pages.register_page.register(user['first_name'], user['last_name'], user['email'], user['password'])
+    pages.register_page.register(user)
     pages.header.click_logout_button()
     return {
         "first_name": user['first_name'],
         "last_name": user['last_name'],
         "email": user['email'],
         "password": user['password'],
+        "confirm_password": user["confirm_password"]
     }
 
 @pytest.fixture(scope="function")
