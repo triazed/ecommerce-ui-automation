@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
 
+
 class ShoppingCartPageLocators:
 
     PRODUCT_NAMES = (By.CSS_SELECTOR, ".cart a.product-name")
+    PRODUCTS_TABLE = (By.CLASS_NAME, "cart")
 
     @staticmethod
     def product_qty_in_cart(product_name):
@@ -17,5 +19,4 @@ class ShoppingCartPageLocators:
     EMPTY_CART_MESSAGE = (By.CSS_SELECTOR, ".order-summary-content div.no-data")
     TERMS_CHECKBOX = (By.CSS_SELECTOR, ".terms-of-service #termsofservice")
     CHECKOUT_BUTTON = (By.CSS_SELECTOR, ".checkout-buttons button.checkout-button")
-
 

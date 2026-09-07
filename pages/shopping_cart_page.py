@@ -7,6 +7,9 @@ class ShoppingCartPage(BaseUI):
     def get_product_names_in_cart(self):
         return self.get_texts(ShoppingCartPageLocators.PRODUCT_NAMES)
 
+    def is_shopping_cart_empty(self):
+        return self.is_element_invisible(ShoppingCartPageLocators.PRODUCTS_TABLE)
+
     def get_product_qty_in_cart(self, product_name):
         return int(self.get_element_attribute(ShoppingCartPageLocators.product_qty_in_cart(product_name), "value"))
 

@@ -33,12 +33,12 @@ def pages(driver):
 @pytest.fixture(scope="function")
 def product_added_to_cart(pages):
     pages.base_ui.navigate_to(urls.BASE_URL)
-    product = products.SEARCHED_PRODUCT_NAME_QTY_1
-    pages.header.set_searched_value(product)
-    pages.header.click_searched_product_in_search_dropdown(product)
+    product_name = products.SEARCHED_PRODUCT_NAME_QTY_1
+    pages.header.set_searched_value(product_name)
+    pages.header.click_searched_product_in_search_dropdown(product_name)
     pages.product_card_page.add_product_to_cart()
     pages.header.click_close_notification_button()
-    return product
+    return product_name
 
 @pytest.fixture(scope="function")
 def registered_user(pages):
