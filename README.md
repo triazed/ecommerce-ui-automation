@@ -1,12 +1,13 @@
-### UI test automation project for nopCommerce demo store.
+## nopCommerce UI Test Automation
 The project demonstrates automated UI testing using Selenium, Pytest and Page Object Model.
 
 ### Tech stack:
 - Python
 - Pytest
-- Selenium
+- Selenium WebDriver
 - Page Object Model
-- Docker (for local test environment)
+- Docker / Docker Compose
+- Chrome and Firefox
 
 ### Test coverage
 The project covers the following user flows:
@@ -21,22 +22,41 @@ End-to-end flow:
 search → add to cart → cart → checkout → order
 
 ### Project structure
-- pages/ – Page Object Model implementation
-- locators/ – UI locators
-- tests/ – test scenarios
-- test_data/ – test data and expectations
-- utils/ – data generators
+- config/          # URLs and framework configuration
+- locators/        # Page and component locators
+- pages/           # Page Objects and reusable UI components
+- test_data/       # Test data and expected results
+- tests/           # Pytest test suites and fixtures
+- utils/           # Test data generators
+- docker-compose.yml
+- pytest.ini
+- requirements.txt
+
+### Design
+The project follows the Page Object Model pattern.
+
+- UI interactions are encapsulated in Page Objects and reusable components.
+- Locators are separated from page logic.
+- Pytest fixtures manage browser lifecycle and reusable test preconditions.
+- Test data and expected results are separated from test logic.
 
 ### Prerequisites
 - Python 3.10+
 - Docker Desktop
 
-### Start test environment
-docker compose up -d
+### Install dependencies
+`pip install -r requirements.txt`
 
-### Initial setup
+### Environment Setup
+Create a `.env` file in the project root based on `.env.example`:
+`MSSQL_SA_PASSWORD=your_strong_password_here`
+
+### Start test environment
+`docker compose up -d`
+
+### Initial nopCommerce setup
 The test store will be available at:
-http://localhost:5000/install
+`http://localhost:5000/install`
 
 Use the following settings:
 - Database type: SQL Server
@@ -44,15 +64,12 @@ Use the following settings:
 - Server name: nop-db
 - Database name: nopcommerce
 - SQL Username: sa
-- SQL Password: (see docker-compose.yml)
+- SQL Password: use the value from your `.env` file
 - ✓ Enable sample data
-
-### Install dependencies
-pip install -r requirements.txt
 
 ### Launching tests
 Chrome is used as the default browser.
 
-pytest 
+`pytest` 
 
-pytest --browser=firefox
+`pytest --browser=firefox`
