@@ -41,10 +41,18 @@ class CheckoutPage(BaseUI):
     def set_phone_number(self, checkout_data):
         self.set_text(CheckoutPageLocators.PHONE, checkout_data["phone_number"])
 
-    def set_billing_address_section(self, checkout_data):
+    def set_new_user_billing_address_section(self, checkout_data):
         self.set_first_name(checkout_data)
         self.set_last_name(checkout_data)
         self.set_email(checkout_data)
+        self.choose_country(checkout_data)
+        self.choose_state(checkout_data)
+        self.set_city(checkout_data)
+        self.set_address_1(checkout_data)
+        self.set_zip_code(checkout_data)
+        self.set_phone_number(checkout_data)
+
+    def set_existing_user_billing_address_section(self, checkout_data):
         self.choose_country(checkout_data)
         self.choose_state(checkout_data)
         self.set_city(checkout_data)
