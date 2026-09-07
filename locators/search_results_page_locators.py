@@ -14,3 +14,5 @@ class SearchResultsPageLocators:
         return add_to_cart_button
 
     NO_RESULT_MESSAGE = (By.CSS_SELECTOR, ".search-results div.no-result")
+    SEARCH_RESULTS_PAGE_PRODUCT_NAMES = (By.CSS_SELECTOR, ".product-item .product-title")
+
