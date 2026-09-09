@@ -8,20 +8,34 @@ from test_data.registration_data import new_user
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
+    parser.addoption("--headless", action="store_true")
 
 @pytest.fixture(scope="function")
 def driver(request):
     browser = request.config.getoption("--browser").lower()
+    headless = request.config.getoption("--headless")
+
     if browser == "chrome":
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--window-size=1920x1080")
+
+        if headless:
+            chrome_options.add_argument("--headless=new")
+
         driver = webdriver.Chrome(options=chrome_options)
+
     elif browser == "firefox":
         firefox_options = webdriver.FirefoxOptions()
         firefox_options.add_argument("--window-size=1920x1080")
+
+        if headless:
+            firefox_options.add_argument("--headless")
+
         driver = webdriver.Firefox(options=firefox_options)
+
     else:
         raise ValueError(f"{browser} not supported. Use chrome or firefox.")
+
     yield driver
     driver.quit()
 
