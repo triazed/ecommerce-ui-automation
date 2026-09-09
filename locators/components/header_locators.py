@@ -13,5 +13,5 @@ class HeaderLocators:
 
     @staticmethod
     def searched_product(product_name):
-        searched_product = (By.XPATH, f".//div[@role='search']//li/a[span[text()='{product_name}']]")
+        searched_product = (By.XPATH, f".//div[@role='search']//li[@class='ui-menu-item']/a/span[text()='{product_name}']")
         return searched_product

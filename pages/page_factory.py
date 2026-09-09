@@ -1,5 +1,6 @@
 from pages.base_ui import BaseUI
 from pages.checkout_page import CheckoutPage
+from pages.main_page import MainPage
 from pages.shopping_cart_page import ShoppingCartPage
 from pages.components.header import Header
 from pages.product_card_page import ProductCardPage
@@ -18,3 +19,4 @@ class PageFactory:
         self.register_page = RegisterPage(driver)
         self.search_results_page = SearchResultsPage(driver)
         self.shopping_cart_page = ShoppingCartPage(driver)
+        self.main_page = MainPage(driver)

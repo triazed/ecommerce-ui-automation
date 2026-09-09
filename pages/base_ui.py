@@ -31,7 +31,7 @@ class BaseUI:
 
     def get_texts(self, locator):
         texts = []
-        elements = WebDriverWait(self.driver, self.timeout).until(lambda d: d.find_elements(*locator))
+        elements = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_all_elements_located(locator))
         for element in elements:
             texts.append(element.text)
         return texts

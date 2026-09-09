@@ -1,5 +1,6 @@
 from locators.checkout_page_locators import CheckoutPageLocators
 from pages.base_ui import BaseUI
+import allure
 
 
 class CheckoutPage(BaseUI):
@@ -8,6 +9,7 @@ class CheckoutPage(BaseUI):
         return self.get_text(CheckoutPageLocators.CHECKOUT_PAGE_TITLE)
 
     # Checkout or register section
+    @allure.step("Proceed to checkout as guest")
     def click_checkout_as_guest_button(self):
         self.click_element(CheckoutPageLocators.CHECKOUT_AS_GUEST_BUTTON)
 
@@ -41,6 +43,7 @@ class CheckoutPage(BaseUI):
     def set_phone_number(self, checkout_data):
         self.set_text(CheckoutPageLocators.PHONE, checkout_data["phone_number"])
 
+    @allure.step("Fill in billing address section")
     def set_new_user_billing_address_section(self, checkout_data):
         self.set_first_name(checkout_data)
         self.set_last_name(checkout_data)
@@ -52,6 +55,7 @@ class CheckoutPage(BaseUI):
         self.set_zip_code(checkout_data)
         self.set_phone_number(checkout_data)
 
+    @allure.step("Fill in billing address section")
     def set_existing_user_billing_address_section(self, checkout_data):
         self.choose_country(checkout_data)
         self.choose_state(checkout_data)
@@ -60,18 +64,22 @@ class CheckoutPage(BaseUI):
         self.set_zip_code(checkout_data)
         self.set_phone_number(checkout_data)
 
+    @allure.step("Confirm billing address section")
     def continue_from_billing_address_section(self):
         self.click_element(CheckoutPageLocators.ADDRESS_CONTINUE_BUTTON)
 
     # Shipping method section
+    @allure.step("Confirm shipping method section")
     def continue_from_shipping_method_section(self):
         self.click_element(CheckoutPageLocators.SHIPPING_METHOD_CONTINUE_BUTTON)
 
     # Payment method section
+    @allure.step("Confirm payment method section")
     def continue_from_payment_method_section(self):
         self.click_element(CheckoutPageLocators.PAYMENT_METHOD_CONTINUE_BUTTON)
 
     # Payment information section
+    @allure.step("Confirm payment information section")
     def continue_from_payment_info_section(self):
         self.click_element(CheckoutPageLocators.PAYMENT_INFO_CONTINUE_BUTTON)
 
@@ -79,6 +87,7 @@ class CheckoutPage(BaseUI):
     def get_product_names_in_order_summary(self):
         return self.get_texts(CheckoutPageLocators.PRODUCT_NAMES_IN_ORDER_SUMMARY)
 
+    @allure.step("Confirm order")
     def click_confirm_order_button(self):
         self.click_element(CheckoutPageLocators.CONFIRM_ORDER_BUTTON)
 
